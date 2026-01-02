@@ -29,6 +29,10 @@ Plug 'rust-lang/rust.vim',
 Plug 'nikolvs/vim-sunbather',
 Plug 'itchyny/lightline.vim',
 Plug 'sonph/onehalf', {'rtp': 'vim/'},
+Plug 'nvim-tree/nvim-web-devicons',
+Plug 'akinsho/bufferline.nvim', { 'tag': '*' },
+Plug 'bleakwind/vim-bufferlist',
+Plug 'bleakwind/vim-filelist',
 " Initialize plugin system
 call plug#end()
 
@@ -54,8 +58,9 @@ call plug#end()
 :let g:vimtex_compiler_enabled = 0
 :set spell spelllang=en_gb,en_us,en
 :set nospell
-colorscheme onehalfdark
-let g:airline_theme='onehalfdark'
+:colorscheme onehalfdark
+:let g:airline_theme='onehalfdark'
+:set mouse=a
 "vim
 
 "leader-map
@@ -69,6 +74,11 @@ nnoremap <leader>tt :botright terminal<CR>
 nnoremap <leader>tn :NERDTreeToggle<CR>
 nnoremap <Leader>mm :set mouse=a<CR>
 nnoremap <Leader>mn :set mouse=<CR>
+nnoremap <S-Up> :resize -1<CR>
+nnoremap <S-Down> :resize +1<CR>
+nnoremap <S-Left> :vertical resize -1<CR>
+nnoremap <S-Right> :vertical resize +1<CR>
+nnoremap <leader>tf :FilelistOpen<CR>
 "leader-map
 
 "Airline
@@ -131,3 +141,56 @@ let g:rustfmt_command = "rustfmt"
 autocmd filetype rust nnoremap <F5> : <bar> exec 'RustRun'<CR>
 autocmd filetype rust nnoremap <F6> : <bar> exec 'RustTest'<CR>
 "rust
+
+"bufferline
+set termguicolors
+"bufferline
+
+"bufferlist
+" " Set 1 enable bufferlist (default: 0)
+" let g:bufferlist_enabled = 1
+" " Set 1 autostart bufferlist (default: 0)
+" let g:bufferlist_autostart = 1
+" " Position of bufferlist: 'top', 'bottom', 'left', 'right' (default: 'top')
+" let g:bufferlist_position = 'top'
+" " Window width for vertical position (default: 20)
+" let g:bufferlist_winwidth = 20
+" " Window height for horizontal position (default: 1)
+" let g:bufferlist_winheight = 1
+" " Enable bufferlist restoration (default: 0)
+" let g:bufferlist_reopen = 1
+" " Path for storing bufferlist data (default: $HOME/.vim/bufferlist)
+" "let g:bufferlist_datapath = g:config_dir_data.'bufferlist'
+" "Tab color format - [dark cterm, dark gui, light cterm, light gui]
+" " Normal buffers
+" let g:bufferlist_hldefnor = '#FFFFFF'
+" " Modified buffers
+" let g:bufferlist_hldefmod = '#F56C6C'
+" " Current normal buffer
+" let g:bufferlist_hlcurnor = '#67C23A'
+" " Current modified buffer
+" let g:bufferlist_hlcurmod = '#E0575B'
+" " Visible normal buffer
+" let g:bufferlist_hlvisnor = '#67C23A'
+" " Visible modified buffer
+" let g:bufferlist_hlvismod = '#E0575B'
+" " Separator
+" let g:bufferlist_hlsepnor = '#AAAAAA'
+"bufferlist
+
+"filelist
+" Set 1 enable filelist (default: 0)
+let g:filelist_enabled = 1
+" Set 1 autostart filelist (default: 0)
+let g:filelist_autostart = 0
+" Position of the filelist window: 'left' or 'right' (default: 'left')
+let g:filelist_position = 'left'
+" Width of the filelist window (default: 30)
+let g:filelist_winwidth = 20
+" Default directory to show (default: getcwd())
+let g:filelist_mainpath = getcwd()
+" Set 1 Show hidden files (default: 0)
+let g:filelist_showhide = 0
+" Set Bookmark place (default: $HOME.'/.vim/filelist')
+let g:filelist_datapath = $HOME.'/.vim/filelist'
+"filelist

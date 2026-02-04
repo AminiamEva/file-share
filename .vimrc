@@ -33,7 +33,10 @@ Plug 'nvim-tree/nvim-web-devicons',
 Plug 'akinsho/bufferline.nvim', { 'tag': '*' },
 Plug 'bleakwind/vim-bufferlist',
 Plug 'bleakwind/vim-filelist',
-" Initialize plugin system
+Plug 'enricobacis/vim-airline-clock',
+Plug 'psliwka/vim-smoothie',
+
+"Initialize plugin system
 call plug#end()
 
 " set nocompatible              " be iMproved, required
@@ -61,6 +64,7 @@ call plug#end()
 :colorscheme onehalfdark
 :let g:airline_theme='onehalfdark'
 :set mouse=a
+:set clipboard=unnamed
 "vim
 
 "leader-map
@@ -80,6 +84,16 @@ nnoremap <S-Left> :vertical resize -1<CR>
 nnoremap <S-Right> :vertical resize +1<CR>
 nnoremap <leader>tf :FilelistOpen<CR>
 "leader-map
+
+"Visual Scroll Bar (Show percentage only)
+"" set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+" function! ScrollIndicator()
+"     let current = line('.')
+"     let total = line('$')
+"     let percent = (current * 100) / total
+"     echo '[' . repeat('=', percent/5) . '>'
+" endfunction
+" autocmd CursorMoved,CursorMovedI * call ScrollIndicator()
 
 "Airline
 set laststatus=2
@@ -194,3 +208,16 @@ let g:filelist_showhide = 0
 " Set Bookmark place (default: $HOME.'/.vim/filelist')
 let g:filelist_datapath = $HOME.'/.vim/filelist'
 "filelist
+
+" "scrollbar
+" " Prevents loading by telling the plugin it's already loaded. You'll have
+" " to :call ToggleScrollbar()<CR> if you want to load it manually.
+" " Default characters to use in the scrollbar.
+" let g:loaded_scrollbar=1
+" map <leader>sb :call ToggleScrollbar()<cr>
+" "scrollbar
+
+"airline_clock
+" let g:airline#extensions#clock#format = '%H:%M:%S'
+" let g:airline#extensions#clock#updatetime = 1000
+"
